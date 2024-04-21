@@ -238,6 +238,75 @@ namespace Schizo_Posting_101
     [TestClass]
     public class NPC
     {
+        [TestMethod]
+        public void Worker_Standard()
+        {
+            NPC npc = new NPC();
+            Assert.IsTrue(npc.Worker == Worker.Shopkeeper); //base
+        }
+        [TestMethod]
+        public void Worker_Shopkeeper()
+        {
+            NPC npc = new NPC();
+            npc.Worker == Worker.Shopkeeper;
+            Assert.IsTrue(npc.Worker == Worker.Shopkeeper);
+        }
+        [TestMethod]
+        public void Worker_Enemy()
+        {
+            NPC npc = new NPC();
+            npc.Worker == Worker.Enemy;
+            Assert.IsTrue(npc.Worker == Worker.Enemy);
+        }
+        [TestMethod]
+        public void Worker_Citizen17()
+        {
+            NPC npc = new NPC();
+            npc.Worker == Worker.Citizen;
+            Assert.IsTrue(npc.Worker == Worker.Citizen);
+        }
+        [TestMethod]
+        public void StrenghtSet()
+        {
+            NPC npc = new NPC();
+            npc.Strenght = 50;
+            Assert.AreEqual(50, npc.Strenght);
+        }
+
+        [TestMethod]
+        public void BossSet()
+        {
+            NPC npc = new NPC();
+            npc.Boss = true;
+            Assert.AreEqual(true, npc.Boss);
+        }
+
+        [TestMethod]
+        public void NPC_InicializationBoss()
+        {                           //name, Specialization, Face, Hair, HairColour, Worker, Strenght, IsBoss
+            NPC npc = new NPC("Bob Ross", "Mage", Face.BigEars, Hair.Bald, HairColour.Red, Worker.Citizen17, 50, true);
+            Assert.IsTrue(npc.Boss == true && npc.Strenght == 50);
+        }
+        [TestMethod]
+        public void NPC_InicializationNotBoss()
+        {                           //name, Specialization, Face, Hair, HairColour, Strenght, IsBoss
+            NPC npc = new NPC("Bob Ross", "Mage", Face.BigEars, Hair.Bald, HairColour.Red, Worker.Citizen17);
+            Assert.IsTrue(npc.Boss == false && npc.Strenght == 0);
+        }
+        [TestMethod]
+        public void NPC_ChangePosition()
+        {
+            NPC npc = new NPC();
+            npc.ChangePosition(15, 25);
+            Assert.IsTrue(npc.PositionX == 15 && npc.PositionY == 25);
+        }
+        [TestMethod]
+        public void NPC_ToString()
+        {
+                                    //name, Specialization, Face, Hair, HairColour, Worker, Strenght, Boss
+            NPC npc = new NPC("Bob Ross", "Mage", Face.BigEars, Hair.Bald, HairColour.Red, Worker.Enemy, 50, true);
+            Assert.IsTrue(npc.ToString() == "Name: Bob Ross\nLevel: 1\nPositionX: 0\nPositionY: 0\nSpecialization: Mage\nFace: BigEars\nHair: Bald\nHairColour: Red\nXP: 0\nWorker: Enemy\nStrenght: 50 \nBoss: true");
+        }
 
     }
 }
