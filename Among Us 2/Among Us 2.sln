@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Among Us 2", "Among Us 2\Among Us 2.csproj", "{055FB2B4-2127-44F7-8562-D4394F2C9A28}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schizo-Posting 101", "Schizo-Posting 101\Schizo-Posting 101.csproj", "{EC13838B-F566-4DB3-AB4A-8050BCFC5BCE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{055FB2B4-2127-44F7-8562-D4394F2C9A28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{055FB2B4-2127-44F7-8562-D4394F2C9A28}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{055FB2B4-2127-44F7-8562-D4394F2C9A28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC13838B-F566-4DB3-AB4A-8050BCFC5BCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC13838B-F566-4DB3-AB4A-8050BCFC5BCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC13838B-F566-4DB3-AB4A-8050BCFC5BCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC13838B-F566-4DB3-AB4A-8050BCFC5BCE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
