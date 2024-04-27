@@ -8,20 +8,18 @@ namespace Test_Hra
     [TestClass]
     public class UnitTest1
     {
-        private Hra hra;
+        private Herni_Postava postava;
+        private Hráč hrac;
+        private NPC npc;
 
         //1
         [TestMethod]
         public void Test_DelkaJmena()
         {
             //Arrange
-            hra = new Hra();
-
-            //Act
-            hra.NastaveniJmena("Borek");
-
+            postava = new Herni_Postava("Borek");
             //Assert
-            Assert.IsTrue(hra.Jmeno.Length > 0);
+            Assert.IsTrue(postava.Jmeno.Length > 0);
         }
 
         //2
@@ -29,13 +27,13 @@ namespace Test_Hra
         public void Test_Levelu()
         {
             //Arrange
-            hra = new Hra();
+            postava = new Herni_Postava("Borek");
 
             //Act
-            hra.level = 1;
+            postava.level = 1;
 
             //Assert
-            Assert.IsTrue(hra.level == 1);
+            Assert.IsTrue(postava.level == 1);
         }
 
         //3
@@ -43,13 +41,13 @@ namespace Test_Hra
         public void Test_PoziceX()
         {
             //Arrange
-            hra = new Hra();
+            postava = new Herni_Postava("Borek");
 
             //Act
-            hra.PoziceX = 0;
+            postava.PoziceX = 0;
 
             //Assert
-            Assert.IsTrue(hra.PoziceX == 0);
+            Assert.IsTrue(postava.PoziceX == 0);
         }
 
         //4
@@ -57,13 +55,13 @@ namespace Test_Hra
         public void Test_PoziceY()
         {
             //Arrange
-            hra = new Hra();
+            postava = new Herni_Postava("Borek");
 
             //Act
-            hra.PoziceY = 0;
+            postava.PoziceY = 0;
 
             //Assert
-            Assert.IsTrue(hra.PoziceY == 0);
+            Assert.IsTrue(postava.PoziceY == 0);
         }
 
         //5
@@ -71,13 +69,13 @@ namespace Test_Hra
         public void Test_ZmenaPoziceX()
         {
             //Arrange
-            hra = new Hra();
+            postava = new Herni_Postava("Borek");
 
             //Act
-            hra.PoziceX = 5;
+            postava.PoziceX = 5;
 
             //Assert
-            Assert.IsTrue(hra.PoziceX != 0);
+            Assert.IsTrue(postava.PoziceX != 0);
         }
 
         //6
@@ -85,13 +83,13 @@ namespace Test_Hra
         public void Test_ZmenaPoziceY()
         {
             //Arrange
-            hra = new Hra();
+            postava = new Herni_Postava("Borek");
 
             //Act
-            hra.PoziceY = 2;
+            postava.PoziceY = 2;
 
             //Assert
-            Assert.IsTrue(hra.PoziceY != 0);
+            Assert.IsTrue(postava.PoziceY != 0);
         }
 
         //7
@@ -99,13 +97,9 @@ namespace Test_Hra
         public void Test_Specializace()
         {
             //Arrange
-            hra = new Hra();
-
-            //Act
-            hra.Specializace = "Berserker";
-
+            hrac = new Hráč("Borek", "Berserker", Hráč.Obličej.MakeUp, Hráč.Vlasy.Drdol, Hráč.BarvaVlasu.Blond);
             //Assert
-            Assert.IsTrue(hra.Specializace == "Berserker" || hra.Specializace == "Kouzelnik" || hra.Specializace == "Inzenyr" || hra.Specializace == "Cizak");
+            Assert.IsTrue(hrac.Specializace == "Berserker" || hrac.Specializace == "Kouzelnik" || hrac.Specializace == "Inzenyr" || hrac.Specializace == "Cizak");
         }
 
         //8
@@ -113,13 +107,9 @@ namespace Test_Hra
         public void Test_Oblicej()
         {
             //Arrange
-            hra = new Hra();
-
-            //Act
-            hra.oblicej = 1;
-
+            hrac = new Hráč("Borek", "Berserker", Hráč.Obličej.MakeUp, Hráč.Vlasy.Drdol, Hráč.BarvaVlasu.Blond);
             //Assert
-            Assert.IsTrue(hra.oblicej >= 0 && hra.oblicej <= 2);
+            Assert.IsTrue(hrac.obličej == Hráč.Obličej.MakeUp); //bolest, pain, suffering, miluju enums :)))))
         }
 
         //9
@@ -127,13 +117,10 @@ namespace Test_Hra
         public void Test_Vlasu()
         {
             //Arrange
-            hra = new Hra();
-
-            //Act
-            hra.vlasy = 2;
+            hrac = new Hráč("Borek", "Berserker", Hráč.Obličej.MakeUp, Hráč.Vlasy.Drdol, Hráč.BarvaVlasu.Blond);
 
             //Assert
-            Assert.IsTrue(hra.vlasy >= 0 && hra.vlasy <= 2);
+            Assert.IsTrue(hrac.vlasy == Hráč.Vlasy.Drdol);
         }
 
         //10
@@ -141,13 +128,10 @@ namespace Test_Hra
         public void Test_BarvaVlasu()
         {
             //Arrange
-            hra = new Hra();
-
-            //Act
-            hra.barvaVlasu = 0;
+            hrac = new Hráč("Borek", "Berserker", Hráč.Obličej.MakeUp, Hráč.Vlasy.Drdol, Hráč.BarvaVlasu.Blond);
 
             //Assert
-            Assert.IsTrue(hra.barvaVlasu >= 0 && hra.barvaVlasu <= 2);
+            Assert.IsTrue(hrac.barvaVlasu == Hráč.BarvaVlasu.Blond);
         }
 
         //11
@@ -155,13 +139,13 @@ namespace Test_Hra
         public void Test_XP()
         {
             //Arrange
-            hra = new Hra();
+            hrac = new Hráč("Borek", "Berserker", Hráč.Obličej.MakeUp, Hráč.Vlasy.Drdol, Hráč.BarvaVlasu.Blond);
 
             //Act
-            hra.XP = 0;
+            hrac.xp = 0;
 
             //Assert
-            Assert.IsTrue(hra.XP >= 0);
+            Assert.IsTrue(hrac.xp >= 0);
         }
 
         //12
@@ -169,13 +153,13 @@ namespace Test_Hra
         public void Test_PridaniXP()
         {
             //Arrange
-            hra = new Hra();
+            hrac = new Hráč("Borek", "Berserker", Hráč.Obličej.MakeUp, Hráč.Vlasy.Drdol, Hráč.BarvaVlasu.Blond);
 
             //Act
-            hra.PridejXP(120);
+            hrac.PridejXP(120);
 
             //Assert
-            Assert.IsTrue(hra.XP == 120);
+            Assert.IsTrue(hrac.xp == 120);
         }
 
         //13
@@ -183,15 +167,15 @@ namespace Test_Hra
         public void Test_Levelovani()
         {
             //Arrange
-            hra = new Hra();
+            hrac = new Hráč("Borek", "Berserker", Hráč.Obličej.MakeUp, Hráč.Vlasy.Drdol, Hráč.BarvaVlasu.Blond);
 
             //Act
-            hra.XP = 100;
-            hra.PridejXP(400);
+            hrac.xp = 100;
+            hrac.PridejXP(400);
             
 
             //Assert
-            Assert.IsTrue(hra.level == 6);
+            Assert.IsTrue(hrac.level == 6); //kde ten cyp vzal lv 6
         }
 
         //14
@@ -199,13 +183,9 @@ namespace Test_Hra
         public void Test_Prace()
         {
             //Arrange
-            hra = new Hra();
-
-            //Act
-            hra.prace = 1;
-
-            //Assert
-            Assert.IsTrue(hra.barvaVlasu >= 0 && hra.barvaVlasu <= 2);
+            npc = new NPC("Borek", "Berserker", Hráč.Obličej.MakeUp, Hráč.Vlasy.Drdol, Hráč.BarvaVlasu.Blond, NPC.Práce.obyvatel);
+            //Assert.IsTrue(hrac.barvaVlasu >= 0 && hrac.barvaVlasu <= 2); OG Kod - Tady nekdo varil
+            Assert.IsTrue(npc.prace == NPC.Práce.obyvatel);
         }
 
         //15
@@ -213,13 +193,10 @@ namespace Test_Hra
         public void Test_SilaNPC()
         {
             //Arrange
-            hra = new Hra();
-
-            //Act
-            hra.sila = 20;
+            npc = new NPC("Borek", "Berserker", Hráč.Obličej.MakeUp, Hráč.Vlasy.Drdol, Hráč.BarvaVlasu.Blond, NPC.Práce.obyvatel, 20, false);
 
             //Assert
-            Assert.IsTrue(hra.sila >= 0 && hra.sila <= 100);
+            Assert.IsTrue(npc.sila >= 0 && npc.sila <= 100);
         }
 
         //16
@@ -227,13 +204,13 @@ namespace Test_Hra
         public void Test_ZmenaPoziceXNPC()
         {
             //Arrange
-            hra = new Hra();
+            npc = new NPC("Borek", "Berserker", Hráč.Obličej.MakeUp, Hráč.Vlasy.Drdol, Hráč.BarvaVlasu.Blond, NPC.Práce.obyvatel, 20, false);
 
             //Act
-            hra.poziceNPCX = 5;
+            npc.PoziceNPCX(5);
 
             //Assert
-            Assert.IsTrue(hra.poziceNPCX != 0);
+            Assert.IsTrue(npc.PoziceX != 0);
         }
 
         //17
@@ -241,13 +218,13 @@ namespace Test_Hra
         public void Test_ZmenaPoziceYNPC()
         {
             //Arrange
-            hra = new Hra();
+            npc = new NPC("Borek", "Berserker", Hráč.Obličej.MakeUp, Hráč.Vlasy.Drdol, Hráč.BarvaVlasu.Blond, NPC.Práce.obyvatel, 20, false);
 
             //Act
-            hra.poziceNPCY = 2;
+            npc.PoziceNPCY(2);
 
             //Assert
-            Assert.IsTrue(hra.poziceNPCY != 0);
+            Assert.IsTrue(npc.PoziceY != 0);
         }
 
         //18
@@ -255,13 +232,13 @@ namespace Test_Hra
         public void Test_NepovolenaPoziceXNPC()
         {
             //Arrange
-            hra = new Hra();
+            npc = new NPC("Borek", "Berserker", Hráč.Obličej.MakeUp, Hráč.Vlasy.Drdol, Hráč.BarvaVlasu.Blond, NPC.Práce.obyvatel, 20, false);
 
             //Act
-            hra.poziceNPCX = 20;
+            npc.PoziceNPCX(20);
 
             //Assert
-            Assert.IsTrue(hra.poziceNPCX <= 500);
+            Assert.IsTrue(npc.PoziceX <= 500);
         }
 
         //19
@@ -269,13 +246,13 @@ namespace Test_Hra
         public void Test_NepovolenaPoziceYNPC()
         {
             //Arrange
-            hra = new Hra();
+            npc = new NPC("Borek", "Berserker", Hráč.Obličej.MakeUp, Hráč.Vlasy.Drdol, Hráč.BarvaVlasu.Blond, NPC.Práce.obyvatel, 20, false);
 
             //Act
-            hra.poziceNPCY = 3000;
+            npc.PoziceNPCY(3000);
 
             //Assert
-            Assert.IsTrue(hra.poziceNPCX <= 500);
+            Assert.IsTrue(npc.PoziceX <= 500);
         }
 
         //20
@@ -283,13 +260,13 @@ namespace Test_Hra
         public void Test_NepovolenyXP()
         {
             //Arrange
-            hra = new Hra();
+            npc = new NPC("Borek", "Berserker", Hráč.Obličej.MakeUp, Hráč.Vlasy.Drdol, Hráč.BarvaVlasu.Blond, NPC.Práce.obyvatel, 20, false);
 
             //Act
-            hra.XP = 20000;
+            npc.xp = 20000;
 
             //Assert
-            Assert.IsTrue(hra.XP <= 30000);
+            Assert.IsTrue(npc.xp <= 30000);
         }
 
 
