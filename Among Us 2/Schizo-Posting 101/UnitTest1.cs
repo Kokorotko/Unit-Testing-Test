@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 namespace Schizo_Posting_101
 {
     [TestClass]
-    public class GameCharacter
+    public class GameCharacterTest
     {
         [TestMethod]
         public void LongNameTrue() //name is saved
@@ -70,7 +70,7 @@ namespace Schizo_Posting_101
     }
 
     [TestClass]
-    public class Gamer
+    public class GamerTest
     {
         [TestMethod]
         public void Specialization_Mage()
@@ -116,31 +116,31 @@ namespace Schizo_Posting_101
         public void Face_Standard() 
         {
             Gamer gamer = new Gamer();
-            Assert.IsTrue(gamer.Face == Face.BigNose);
+            Assert.IsTrue(gamer.face == Gamer.Face.BigNose);
         }
 
         [TestMethod]
         public void Face_BigNose()
         {
             Gamer gamer = new Gamer();
-            gamer.Face = Face.MakeUp;
-            Assert.IsTrue(gamer.Face == Face.BigNose);
+            gamer.face = Gamer.Face.MakeUp;
+            Assert.IsTrue(gamer.face == Gamer.Face.MakeUp);
         }
 
         [TestMethod]
         public void Face_BigEars() //Něco mi říká že to dělám blbě, taky tf is enum
         {
             Gamer gamer = new Gamer();
-            gamer.Face = Face.BigEars;
-            Assert.IsTrue(gamer.Face == Face.BigEars);
+            gamer.face = Gamer.Face.BigEars;
+            Assert.IsTrue(gamer.face == Gamer.Face.BigEars);
         }
 
         [TestMethod]
         public void Face_MakeUp()
         {
             Gamer gamer = new Gamer();
-            gamer.Face = Face.MakeUp;
-            Assert.IsTrue(gamer.Face == Face.MakeUp);
+            gamer.face = Gamer.Face.MakeUp;
+            Assert.IsTrue(gamer.face == Gamer.Face.MakeUp);
         }
 
         /*[TestMethod]
@@ -157,62 +157,62 @@ namespace Schizo_Posting_101
         public void Hair_Standart()
         {
             Gamer gamer = new Gamer();
-            Assert.IsTrue(gamer.Hair == Hair.Bun);
+            Assert.IsTrue(gamer.hair == Gamer.Hair.Bun);
         }
 
         [TestMethod]
         public void Hair_Bun()
         {
             Gamer gamer = new Gamer();
-            gamer.Hair = Hair.Bun;
-            Assert.IsTrue(gamer.Hair == Hair.Bun);
+            gamer.hair = Gamer.Hair.Bun;
+            Assert.IsTrue(gamer.hair == Gamer.Hair.Bun);
         }
 
         [TestMethod]
         public void Hair_Ponytail() //Něco mi říká že to dělám blbě, taky tf is enum
         {
             Gamer gamer = new Gamer();
-            gamer.Hair = Hair.Ponytail;
-            Assert.IsTrue(gamer.Hair == Hair.Ponytail);
+            gamer.hair = Gamer.Hair.Ponytail;
+            Assert.IsTrue(gamer.hair == Gamer.Hair.Ponytail);
         }
 
         [TestMethod]
         public void Hair_Bald() //Literally Me
         {
             Gamer gamer = new Gamer();
-            gamer.Hair = Hair.Bald;
-            Assert.IsTrue(gamer.Hair == Hair.Bald);
+            gamer.hair = Gamer.Hair.Bald;
+            Assert.IsTrue(gamer.hair == Gamer.Hair.Bald);
         }
         //
         [TestMethod]
         public void HairColour_Standart()
         {
             Gamer gamer = new Gamer();
-            Assert.IsTrue(gamer.HairColour == HairColour.Brown);
+            Assert.IsTrue(gamer.hairColour == Gamer.HairColour.Brown);
         }
 
         [TestMethod]
         public void HairColour_Brown()
         {
             Gamer gamer = new Gamer();
-            gamer.HairColour = HairColour.Brown;
-            Assert.IsTrue(gamer.HairColour == HairColour.Brown);
+            gamer.hairColour = Gamer.HairColour.Brown;
+            Assert.IsTrue(gamer.hairColour == Gamer.HairColour.Brown);
         }
 
         [TestMethod]
         public void HairColour_Blond() //Něco mi říká že to dělám blbě, taky tf is enum
         {
             Gamer gamer = new Gamer();
-            gamer.HairColour = HairColour.Blond;
-            Assert.IsTrue(gamer.HairColour == HairColour.Blond);
+            gamer.hairColour = Gamer.HairColour.Blond;
+            Assert.IsTrue(gamer.hairColour == Gamer.HairColour.Blond);
         }
 
         [TestMethod]
         public void HairColour_Red() 
         {
             Gamer gamer = new Gamer();
-            gamer.HairColour = HairColour.Red;
-            Assert.IsTrue(gamer.HairColour == HairColour.Red);
+            gamer.hairColour = Gamer.HairColour.Red;
+            Assert.IsTrue(gamer.hairColour == Gamer.HairColour.Red);
         }
 
         [TestMethod]
@@ -231,39 +231,39 @@ namespace Schizo_Posting_101
 
         public void GamerToString()
         {                                                    //name, Specialization, Face, Hair, HairColour
-            Gamer gamer = new Gamer("Bob Ross","Mage", Face.BigEars, Hair.Bald, HairColour.Red);
+            Gamer gamer = new Gamer("Bob Ross","Mage", Gamer.Face.BigEars, Gamer.Hair.Bald, Gamer.HairColour.Red);
             Assert.IsTrue(gamer.ToString() == "Name: Bob Ross\nLevel: 1\nPositionX: 0\nPositionY: 0\nSpecialization: Mage\nFace: BigEars\nHair: Bald\nHairColour: Red\nXP: 0");
         }
     }
     [TestClass]
-    public class NPC
+    public class NPCTest
     {
         [TestMethod]
         public void Worker_Standard()
         {
             NPC npc = new NPC();
-            Assert.IsTrue(npc.Worker == Worker.Shopkeeper); //base
+            Assert.IsTrue(npc.worker == NPC.Worker.Shopkeeper); //base
         }
         [TestMethod]
         public void Worker_Shopkeeper()
         {
             NPC npc = new NPC();
-            npc.Worker == Worker.Shopkeeper;
-            Assert.IsTrue(npc.Worker == Worker.Shopkeeper);
+            npc.worker = NPC.Worker.Shopkeeper;
+            Assert.IsTrue(npc.worker == NPC.Worker.Shopkeeper);
         }
         [TestMethod]
         public void Worker_Enemy()
         {
             NPC npc = new NPC();
-            npc.Worker == Worker.Enemy;
-            Assert.IsTrue(npc.Worker == Worker.Enemy);
+            npc.worker = NPC.Worker.Enemy;
+            Assert.IsTrue(npc.worker == NPC.Worker.Enemy);
         }
         [TestMethod]
         public void Worker_Citizen17()
         {
             NPC npc = new NPC();
-            npc.Worker == Worker.Citizen;
-            Assert.IsTrue(npc.Worker == Worker.Citizen);
+            npc.worker = NPC.Worker.Citizen17;
+            Assert.IsTrue(npc.worker == NPC.Worker.Citizen17);
         }
         [TestMethod]
         public void StrenghtSet()
@@ -284,28 +284,28 @@ namespace Schizo_Posting_101
         [TestMethod]
         public void NPC_InicializationBoss()
         {                           //name, Specialization, Face, Hair, HairColour, Worker, Strenght, IsBoss
-            NPC npc = new NPC("Bob Ross", "Mage", Face.BigEars, Hair.Bald, HairColour.Red, Worker.Citizen17, 50, true);
+            NPC npc = new NPC("Bob Ross", "Mage", NPC.Face.BigEars, NPC.Hair.Bald, NPC.HairColour.Red, NPC.Worker.Citizen17, 50, true);
             Assert.IsTrue(npc.Boss == true && npc.Strenght == 50);
         }
         [TestMethod]
         public void NPC_InicializationNotBoss()
         {                           //name, Specialization, Face, Hair, HairColour, Strenght, IsBoss
-            NPC npc = new NPC("Bob Ross", "Mage", Face.BigEars, Hair.Bald, HairColour.Red, Worker.Citizen17);
+            NPC npc = new NPC("Bob Ross", "Mage", NPC.Face.BigEars, NPC.Hair.Bald, NPC.HairColour.Red, NPC.Worker.Citizen17);
             Assert.IsTrue(npc.Boss == false && npc.Strenght == 0);
         }
         [TestMethod]
         public void NPC_ChangePosition()
         {
             NPC npc = new NPC();
-            npc.ChangePosition(15, 25);
+            npc.ChangePosition(15f, 25f);
             Assert.IsTrue(npc.PositionX == 15 && npc.PositionY == 25);
         }
         [TestMethod]
         public void NPC_ToString()
         {
-                                    //name, Specialization, Face, Hair, HairColour, Worker, Strenght, Boss
-            NPC npc = new NPC("Bob Ross", "Mage", Face.BigEars, Hair.Bald, HairColour.Red, Worker.Enemy, 50, true);
-            Assert.IsTrue(npc.ToString() == "Name: Bob Ross\nLevel: 1\nPositionX: 0\nPositionY: 0\nSpecialization: Mage\nFace: BigEars\nHair: Bald\nHairColour: Red\nXP: 0\nWorker: Enemy\nStrenght: 50 \nBoss: true");
+            //name, Specialization, Face, Hair, HairColour, Worker, Strenght, Boss
+            NPC npc = new NPC("Bob Ross", "Mage", NPC.Face.BigEars, NPC.Hair.Bald, NPC.HairColour.Red, NPC.Worker.Enemy, 50, true);
+            Assert.IsTrue(npc.ToString() == "Name: Bob Ross\nLevel: 1\nPositionX: 0\nPositionY: 0\nSpecialization: Mage\nFace: BigEars\nHair: Bald\nHairColour: Red\nXP: 0\nWorker: Enemy\nStrenght: 50\nBoss: True");
         }
 
     }
